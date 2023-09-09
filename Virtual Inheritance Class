@@ -1,0 +1,106 @@
+/* 
+	Created by HumoLoco
+	This is designed for Virtual Inheritance where is the class diagram of a platypus demostrating multiple inheritance.
+	// class Animal-- Can Move
+	// class Mammal-- Feeds young milk, covered with hair/fur  -- inherited Attributes-- Can Move
+	// class Bird-- Lays eggs, has a beak/bill -- inherited Attributes -- Can Move
+	// class Reptile-- Webbed feet, Venomous -- inherited Attributes -- Can Move
+	// class Platypus -- Can Swim -- inherited Attributes -- Can Move, Feeds young milk, covered with fur, lays eggs, has a beak/bill, webbed feet, venomous 
+	//** Platypus is only one instance of Platypus from many instance of class Animal are instantiated. 
+	This Is For Education Purposes Only
+*/
+
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+public:
+	Animal()
+	{
+		//cout << "Animal constructor" << endl;
+		cout << "Can Move" << endl;
+	}
+
+	// sample member
+	int age = 0; 
+	
+};
+
+class Mammal : public  virtual Animal
+{
+public:
+	Mammal()
+	{
+		//cout << "Mammal constructor" << endl;
+		cout << "Feeds young milk" << endl;
+		cout << "covered with hair/fur" << endl;
+	}
+
+};
+
+class Bird : public virtual  Animal
+{
+public:
+	Bird()
+	{
+		//cout << "Bird constructor" << endl;
+		cout << "Lays egg" << endl;
+		cout << "Has a beak/bill" << endl;
+	}
+	
+
+};
+
+class Reptile : public virtual Animal
+{
+public:
+	Reptile()
+	{
+		//cout << "Reptile constructor" << endl;
+		cout << "Webbed feet" << endl;
+		cout << "Venomous" << endl;
+	}
+};
+
+class Platypus final : public Mammal, public Bird, public Reptile
+{
+public:
+	Platypus()
+	{
+		//cout << "Platypus constructor" << endl;
+		cout << "Has electroreception for locate their prey in part by deteching electric fields." << endl;
+		cout << "Has very thick fur and water proof." << endl;
+	}
+
+};
+
+
+
+int main()
+{
+	cout << endl << "Cow:" << endl;
+	Mammal CowMilk;
+	CowMilk.age = 6;
+
+	cout << endl << "Dog:" << endl;
+	Mammal Dog;
+	Dog.age = 4;
+
+
+	cout << endl << "Parrot:" << endl;
+	Bird MangoParrot;
+	MangoParrot.age = 43;
+
+	cout << endl << "Rotten Dragon: " << endl;
+	Reptile RottenDragon;
+	RottenDragon.age = 872;
+	
+	
+	cout << endl << "Platpyus:" << endl;
+	Platypus duckBilledP;
+	duckBilledP.age = 25;
+
+	
+	return 0;
+}
